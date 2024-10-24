@@ -13,13 +13,13 @@ services:
     volumes:
     - pg_data:/var/lib/postgresql/data
 
-  web:
-    build: .
+  django_api:
+    build: ./django_api/ 
     container_name: django
     ports:
       - '8000:8000'
     volumes:
-      - .:/app
+      - ./django_api:/django_api
     environment:
       - DJANGO_ENV=${DJANGO_ENV}
       - DATABASE_NAME=${DATABASE_NAME}
